@@ -1,44 +1,116 @@
-# AI Startup Success Predictor & Market Analytics Hub
+# 🚀 StartupSense AI
+### Intelligent Decision-Support System for Startup Failure Prediction and Risk Evaluation
 
-An interactive enterprise-grade Machine Learning ecosystem built during Semester 8 to evaluate, cluster, and forecast business viability parameters for emerging startups. The architecture integrates multiple pre-trained Scikit-Learn classifiers and clustering models into a unified Streamlit dashboard pipeline.
+---
 
-## 📌 Project Overview
-This project functions as a cross-functional analytics hub that maps out a complete operational data lifecycle—taking raw investment history files and using pre-trained serial models to provide data-driven insights. It serves as an investigative dashboard for venture capitalists and startup owners to test structural business input criteria against trained machine learning boundaries.
+## 📁 Project Structure
 
-## 🎯 Objectives
-- Build a relational processing backend to clean, encode, and scale multidimensional transaction sets.
-- Deploy an array of optimized machine learning classifiers including **Random Forest, K-Nearest Neighbors (KNN), and Logistic Regression** to forecast operational growth trajectories.
-- Integrate **K-Means Clustering** algorithms to dynamically segment startups based on market sector parameters and funding levels.
-- Author an interactive **Streamlit dashboard interface** to deliver seamless, real-time client testing environments.
+```
+startup_project/
+├── app.py                    # Main entry point
+├── auth.py                   # Authentication (login/signup/session)
+├── database.py               # Data persistence (CSV-backed)
+├── requirements.txt
+├── data/
+│   ├── india_startup.csv     # Master dataset (10,000 startups)
+│   ├── startups_db.csv       # User-added startups (auto-created)
+│   └── users.json            # User accounts (auto-created)
+├── models/
+│   ├── ml_models.py          # All ML logic (LR, RF, KNN, KMeans, MLR)
+│   └── saved/                # Trained model artifacts (auto-created)
+├── pages/
+│   ├── owner_pages.py        # All Startup Owner tab renderers
+│   └── investor_pages.py     # All Investor tab renderers
+├── utils/
+│   └── helpers.py            # Chart helpers, color palettes, feature lists
+└── assets/
+    └── logos/                # Uploaded startup logos (auto-created)
+```
 
-## 🛠️ Tools & Technologies
-- **Python (VS Code)** — Central software layer and runtime execution engine
-- **Streamlit** — Web architecture framework used to build the front-end user control panels
-- **Pandas & NumPy** — Array vector calculations, structural cleansing, and dataframe matrix styling
-- **Scikit-Learn** — Custom categorical encoders, standard variable scaling (`scaler.pkl`), and core model training parameters
-- **Pickle (`.pkl` serialization)** — Serialized storage framework used to deploy pre-trained analytical models cleanly without source recompilation overhead
+---
 
-## 📁 Architectural & Project File Tree
-The directory is cleanly isolated into functional production tiers:
-- `app.py` — The primary frontend execution script launching the core web engine.
-- `auth.py` — Handles secure system onboarding validations and user profile state allocations.
-- `database.py` — Establishes connection frameworks and reads persistent storage tables.
-- `models/ml_models.py` — Houses class structures, query parsers, and evaluation mechanics.
-- `models/saved/` — Contains pre-trained serialized model assets:
-  - `scaler.pkl` — Normalized feature scaling parameters.
-  - `feature_names.pkl` — Encoded variable matrix column schemas.
-  - `random_forest.pkl`, `knn.pkl`, `logistic_regression.pkl` — Pre-fit classification weights.
-  - `kmeans.pkl` — Customer/market segmentation boundary nodes.
-- `data/` — Contains foundational transaction tables (`india_startup.csv`, `startups_db.csv`, `users.json`).
-- `utils/helpers.py` — Text formatters, error-handling wrappers, and logging functions.
+## ⚡ Quick Start
 
-## 🚀 How to Run
-1. Download the complete `startup_project` directory tree to your local workspace folder.
-2. Initialize your terminal shell and verify that your system environment handles the required dependencies:
-   ```bash
-   pip install numpy pandas scikit-learn matplotlib seaborn streamlit
-   ```
-3. Boot up the unified multi-model interactive dashboard:
-   ```bash
-   streamlit run app.py
-   ```
+### 1. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run the app
+```bash
+streamlit run app.py
+```
+
+### 3. Open in browser
+```
+http://localhost:8501
+```
+
+---
+
+## 🔐 Demo Credentials
+
+| Role           | Email                  | Password      |
+|----------------|------------------------|---------------|
+| Startup Owner  | owner@demo.com         | owner123      |
+| Investor       | investor@demo.com      | investor123   |
+
+---
+
+## 🤖 Machine Learning Models
+
+| Model                | Task                          | Library            |
+|----------------------|-------------------------------|--------------------|
+| Logistic Regression  | Failure classification        | scikit-learn       |
+| Random Forest        | Failure classification (main) | scikit-learn       |
+| K-Nearest Neighbors  | Failure classification        | scikit-learn       |
+| K-Means              | Startup clustering (4 groups) | scikit-learn       |
+| Multi-Linear Regr.   | Revenue growth forecasting    | scikit-learn       |
+
+**Models are trained automatically on first use** and saved to `models/saved/`.
+
+---
+
+## 👤 Startup Owner Features
+
+| Tab                | Description                                      |
+|--------------------|--------------------------------------------------|
+| 🏠 Home            | System overview and dataset statistics           |
+| 📊 Dataset Explorer | Filter, search, sort, and download dataset     |
+| 📈 Dashboard       | Overview charts, heatmap, sunburst, trends       |
+| 🏢 Add Startup     | Form to register your startup with logo upload   |
+| 🤖 Prediction      | Failure probability via 3 ML models + gauges     |
+| 📉 Growth Forecast | Multi-year revenue growth prediction             |
+| 💡 Recommendations | Rule + ML-based improvement suggestions          |
+| ⚙️ Profile         | Account details and password change              |
+
+## 💼 Investor Features
+
+| Tab                  | Description                                    |
+|----------------------|------------------------------------------------|
+| 🏠 Home              | Ecosystem overview and funding stats           |
+| 📂 All Startups      | Card grid with filters and search              |
+| 📊 Startup Analysis  | Deep-dive with radar chart + 3-yr projection   |
+| ⚖️ Comparison        | Side-by-side metrics + radar comparison        |
+| 🤖 AI Chatbot        | Natural language startup Q&A                   |
+| ⚙️ Profile           | Account details and password change            |
+
+---
+
+## 📊 Dataset Info
+
+- **Source:** `india_startup.csv`
+- **Records:** 10,000 Indian startups
+- **Features:** 39 columns including funding, revenue, team size, scores, and status
+- **Target:** `Startup_Status` (Active / Failed / Struggling / Acquired)
+- **Risk Labels:** Low / Medium / High
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Streamlit + streamlit-option-menu
+- **ML:** scikit-learn
+- **Visualization:** Plotly
+- **Data:** pandas, numpy
+- **Persistence:** JSON (users), CSV (startups), joblib (models)
